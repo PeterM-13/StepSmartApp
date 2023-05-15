@@ -14,7 +14,7 @@ export default function CarerHomePage({navigation}) {
         navigation={navigation}
         navPage={''}
         text="Heart Rate Log"
-        img={require('../assets/heart.png')}
+        img={require('../assets/heart-rate.png')}
       />
     </View>
   );
@@ -23,7 +23,6 @@ export default function CarerHomePage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e6e6e6',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',

@@ -13,20 +13,20 @@ export default function UserHomePage({navigation}) {
       <ButtonIcon
         navigation={navigation}
         navPage={'UserHomePage'}
-        text="Emergency Contacts"
-        img={require('../assets/ambulance.png')}
+        text="Contacts"
+        img={require('../assets/emergency-contact.png')}
       />
       <ButtonIcon
         navigation={navigation}
         navPage={'UserHomePage'}
         text="Lost Smart Stick"
-        img={require('../assets/signal.png')}
+        img={require('../assets/location.png')}
       />
       <ButtonIcon
         navigation={navigation}
         navPage={'UserHomePage'}
         text="Heart Rate Log"
-        img={require('../assets/heart.png')}
+        img={require('../assets/heart-rate.png')}
       />
       <ButtonIcon
         navigation={navigation}
@@ -42,7 +42,6 @@ export default function UserHomePage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#e6e6e6',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',

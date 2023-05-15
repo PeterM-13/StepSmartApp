@@ -3,34 +3,29 @@ import React, {useState} from 'react';
 
 export default function LogInPage({navigation, route}) {
     const [code, setCode] = useState('');
-    const user = route.params?.user || '';
 
     function validateCode(){
         if(code.length != 8){
-            return false;
+            alert(`'${code}' is invalid\nPlease try again`);
+            return;
         }
-        return true;
+        global.code = code;
+        navigation.navigate('StartPage');
     }
-
-    const navigateToHomePage = () => {
-        if(validateCode() == true){
-            const nextPage = (user === 'user') ? 'UserHomePage' : 'CarerHomePage';
-            navigation.navigate(nextPage);
-        }else{
-            alert(`'${code}' is an invalid code.\nPlease try again.`);
-        }
-      };
 
     return (
         <View style={styles.container}>
-            {/*<Text>Ueser: {user}</Text>*/}
-            <Text style={styles.title}>Enter the code on the smart stick</Text>
+            <Text style={{fontSize: 22}}>Enter the code on the smart stick</Text>
             <TextInput
                 style={styles.input}
-                placeholder='1234-5678'
+                placeholder='1234 5678'
+                maxLength={8}
+                keyboardType='numeric' //defult
+                returnKeyType='done'
                 onChangeText={newText => setCode(newText)}
+                onSubmitEditing={validateCode}
             />
-            <TouchableOpacity style={styles.buttonContainer} onPress={navigateToHomePage}>
+            <TouchableOpacity style={styles.buttonContainer} onPress={validateCode}>
                 <Text style={styles.buttonText}>Enter</Text>
             </TouchableOpacity>
         </View>
@@ -40,24 +35,20 @@ export default function LogInPage({navigation, route}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e6e6e6',
         alignItems: 'center',
         justifyContent: 'center',
     },
-    title: {
-        fontSize: 22,
-    },
     input: {
+        width: '80%',
+        marginTop: 18,
+        marginBottom: 18,
         backgroundColor: '#fff',
         height: 50,
-        width: '80%',
         fontSize: 20,
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,0)',
         borderRadius: 8,
         padding: 8,
-        marginTop: 18,
-        marginBottom: 18,
         textAlign: 'center',
         shadowColor: 'rgba(0, 0, 0, 0.25)',
         shadowOffset: { width: 0, height: 0 },
