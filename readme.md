@@ -1,4 +1,4 @@
-#Step Smart App
+# Step Smart App
 
 React Native app for IMechE project.
 
