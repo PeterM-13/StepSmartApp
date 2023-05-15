@@ -11,5 +11,8 @@ App that connects to smart walking stick product, to control the stick and displ
 - native-stack
 - react-native-screens react-native-safe-area-context
 
+## ▶️ Depoloyment
+Run: npm start
+
 ## 👨‍💻 Author
 - Peter Metcalfe
