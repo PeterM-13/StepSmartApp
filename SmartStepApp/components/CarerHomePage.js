@@ -1,15 +1,20 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
+import ButtonIcon from './ButtonIcon2';
 
 export default function CarerHomePage({navigation}) {
   return (
     <View style={styles.container}>
-      <Button
-        title="Notifications"
-        onPress={() => navigation.navigate('StartPage')}
+      <ButtonIcon
+        navigation={navigation}
+        navPage={''}
+        text="Notifications"
+        img={require('../assets/alarm.png')}
       />
-      <Button
-        title="Heart Rate Log"
-        onPress={() => navigation.navigate('StartPage')}
+      <ButtonIcon
+        navigation={navigation}
+        navPage={''}
+        text="Heart Rate Log"
+        img={require('../assets/heart.png')}
       />
     </View>
   );
@@ -21,5 +26,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    paddingTop: 50,
   },
 });

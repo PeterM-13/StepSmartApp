@@ -18,7 +18,7 @@ export default function StartPage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e6e6e6',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 60,

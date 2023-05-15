@@ -1,10 +1,12 @@
-import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
 export default function ButtonIcon2({navigation, navPage, text, img}) {
     return (
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(navPage)}>
-            <Image source={img} style={styles.image}/>
+            <View style={styles.imageContainer}>
+              <Image source={img} style={styles.image}/>
+            </View>
             <Text style={styles.buttonText}>{text}</Text>
         </TouchableOpacity>
     );
@@ -12,7 +14,7 @@ export default function ButtonIcon2({navigation, navPage, text, img}) {
 
 const styles = StyleSheet.create({
     button: {
-      backgroundColor: '#ddd',
+      backgroundColor: '#fff',
       width: 160,
       height: 160,
       alignItems: 'center',
@@ -21,11 +23,25 @@ const styles = StyleSheet.create({
       paddingLeft: 5,
       paddingRight: 5,
       margin: 10,
+      shadowColor: 'rgba(0, 0, 0, 0.25)',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.8,
+      shadowRadius: 4,
+    },
+    imageContainer: {
+      width: 70,
+      height: 70,
+      shadowColor: 'rgba(0, 0, 0, 0.2)',
+      shadowOffset: { width: 0, height: 0 }, 
+      shadowOpacity: 0.8,
+      shadowRadius: 4,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     image: {
       width: 60,
       height: 60,
-      marginTop: 10,
     },
     buttonText: {
       textAlign: 'center',

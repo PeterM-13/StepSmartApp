@@ -6,31 +6,31 @@ export default function UserHomePage({navigation}) {
     <View style={styles.container}>
       <ButtonIcon
         navigation={navigation}
-        navPage={''}
+        navPage={'UserHomePage'}
         text="Set Alert"
         img={require('../assets/alarm.png')}
       />
       <ButtonIcon
         navigation={navigation}
-        navPage={''}
+        navPage={'UserHomePage'}
         text="Emergency Contacts"
         img={require('../assets/ambulance.png')}
       />
       <ButtonIcon
         navigation={navigation}
-        navPage={''}
+        navPage={'UserHomePage'}
         text="Lost Smart Stick"
         img={require('../assets/signal.png')}
       />
       <ButtonIcon
         navigation={navigation}
-        navPage={''}
+        navPage={'UserHomePage'}
         text="Heart Rate Log"
         img={require('../assets/heart.png')}
       />
       <ButtonIcon
         navigation={navigation}
-        navPage={''}
+        navPage={'UserHomePage'}
         text="App Settings"
         img={require('../assets/setting.png')}
       />
@@ -42,12 +42,11 @@ export default function UserHomePage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e6e6e6',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',
     flexDirection: 'row',
     paddingTop: 50,
-
   },
 });
