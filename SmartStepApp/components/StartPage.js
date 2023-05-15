@@ -8,8 +8,8 @@ export default function StartPage({navigation}) {
     <View style={styles.container}>
       <Text style={{fontSize:22}}>Would you like to</Text>
       <View style={styles.buttonContainer}>
-        <ButtonIcon navigation={navigation} text='User a smart stick' navPage='LogInPage' img={require('../assets/stick.png')}/>
-        <ButtonIcon navigation={navigation} text='Monitor a smart stick' img={require('../assets/search.png')}/>
+        <ButtonIcon navigation={navigation} text='User a smart stick' navPage='LogInPage' navProps={{user:'user'}} img={require('../assets/stick.png')}/>
+        <ButtonIcon navigation={navigation} text='Monitor a smart stick' navPage='LogInPage' navProps={{user:'carer'}} img={require('../assets/search.png')}/>
       </View>
     </View>
   );

@@ -9,6 +9,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    // screen navigation stack
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="StartPage" component={StartPage} options={{title: 'Select'}}/>

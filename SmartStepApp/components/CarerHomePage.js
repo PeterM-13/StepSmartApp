@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
-import ButtonIcon from './ButtonIcon2';
+import ButtonIcon from './ButtonIcon';
 
 export default function CarerHomePage({navigation}) {
   return (
@@ -23,7 +23,7 @@ export default function CarerHomePage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#e6e6e6',
     alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',

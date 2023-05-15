@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
-import ButtonIcon from './ButtonIcon2';
+import ButtonIcon from './ButtonIcon';
 
 export default function UserHomePage({navigation}) {
   return (

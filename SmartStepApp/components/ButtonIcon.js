@@ -1,9 +1,9 @@
 import { StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 
-export default function ButtonIcon({navigation, text, img}) {
+export default function ButtonIcon({navigation, navPage, navProps={}, text, img}) {
     return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LogInPage', { user: 'user' })}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(navPage, navProps)}>
             <View style={styles.imageContainer}>
               <Image source={img} style={styles.image}/>
             </View>
