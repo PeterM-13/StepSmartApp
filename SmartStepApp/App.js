@@ -11,10 +11,10 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="StartPage" component={StartPage} options={{title: 'Smart Step'}}/>
+        <Stack.Screen name="StartPage" component={StartPage} options={{title: 'Select'}}/>
         <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Login'}}></Stack.Screen>
-        <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home'}}></Stack.Screen>
-        <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home'}}></Stack.Screen>
+        <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home', headerBackVisible: false}}></Stack.Screen>
+        <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home', headerBackVisible: false}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

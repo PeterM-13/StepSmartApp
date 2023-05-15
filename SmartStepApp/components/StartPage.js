@@ -1,19 +1,16 @@
 import * as React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
+import ButtonIcon from './ButtonIcon';
 
 export default function StartPage({navigation}) {
   return (
     <View style={styles.container}>
-      <Text>Would you like to</Text>
-      <Button
-        title="Use a smart stick"
-        onPress={() => navigation.navigate('LogInPage', {user:'user'})}
-      />
-      <Button
-        title="Monitor a smart stick"
-        onPress={() => navigation.navigate('LogInPage', {user:'carer'})}
-      />
+      <Text style={{fontSize:22}}>Would you like to</Text>
+      <View style={styles.buttonContainer}>
+        <ButtonIcon navigation={navigation} text='User a smart stick' navPage='LogInPage' img={require('../assets/stick.png')}/>
+        <ButtonIcon navigation={navigation} text='Monitor a smart stick' img={require('../assets/search.png')}/>
+      </View>
     </View>
   );
 }
@@ -24,5 +21,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 60,
   },
+  buttonContainer: {
+    padding: 20,
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-around',
+  }
 });
