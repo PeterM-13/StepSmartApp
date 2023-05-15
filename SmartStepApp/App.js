@@ -1,14 +1,24 @@
-import React, {useState} from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+//import Navigator from "./routes/homeStack";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import StartPage from './components/StartPage';
+import LogInPage from './components/LogInPage';
+import UserHomePage from './components/UserHomePage';
+import CarerHomePage from './components/CarerHomePage';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const [name, setName] = useState('')
   return (
-    <View style={styles.container}>
-      <Text>Hello World!!!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="StartPage" component={StartPage} options={{title: 'Smart Step'}}/>
+        <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Login'}}></Stack.Screen>
+        <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home'}}></Stack.Screen>
+        <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home'}}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
