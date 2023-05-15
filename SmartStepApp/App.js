@@ -14,7 +14,7 @@ export default function App() {
     // screen navigation stack
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="WelcomeSceen" component={WelcomeScreen} options={{title: 'Welcome'}}/>
+        <Stack.Screen name="WelcomeSceen" component={WelcomeScreen} options={{title: 'Welcome', headerShown: false}}/>
         <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Login', headerBackVisible: false}}></Stack.Screen>
         <Stack.Screen name="StartPage" component={StartPage} options={{title: 'Select'}}/>
         <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home', headerBackVisible: false}}></Stack.Screen>

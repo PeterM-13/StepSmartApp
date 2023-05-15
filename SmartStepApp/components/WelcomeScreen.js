@@ -19,13 +19,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flew-start',
     height: '100%',
-    paddingLeft: 50,
-    paddingRight: 50,
+    padding: 50,
+    padding: 50,
   },
   image: {
     width: '100%',
     resizeMode: "contain",
-    marginBottom: 100,
+    marginBottom: 80,
   },
   button: {
     backgroundColor: '#fff',

@@ -4,6 +4,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import ButtonIcon from './ButtonIcon';
 
 export default function StartPage({navigation}) {
+    // ToDo
+    // Combine LogIn and start pages into one page (no need for both)
     return (
         <View style={styles.container}>
             <Text style={{fontSize: 22}}>Would you like to</Text>

@@ -5,6 +5,8 @@ export default function LogInPage({navigation, route}) {
     const [code, setCode] = useState('');
 
     function validateCode(){
+        // ToDo
+        // Connect to database to verify code exists
         if(code.length != 8){
             alert(`'${code}' is invalid\nPlease try again`);
             return;
