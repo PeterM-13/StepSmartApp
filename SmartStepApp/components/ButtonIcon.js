@@ -1,33 +1,32 @@
 import { StyleSheet, Text, Image, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ButtonIcon({navigation, navPage, navProps={}, text, img}) {
-    return (
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(navPage, navProps)}>
-            <View style={styles.imageContainer}>
-              <Image source={img} style={styles.image}/>
-            </View>
-            <Text style={styles.buttonText}>{text}</Text>
-        </TouchableOpacity>
-    );
+export default function ButtonIcon({navigation, navPage, navProps={}, text, img, style, action}) {
+  const [buttonPressed, setButtonPressed] = useState(false);
+  if(!style){
+    style = styles.button;
+  }
+  
+  function buttonPress(){
+    if(action){
+      action(navProps.user);
+    }else{
+      navigation.navigate(navPage, navProps);
+    }
+    setButtonPressed(!buttonPressed)
+  }
+
+  return (
+    <TouchableOpacity style={style} onPress={buttonPress}>
+        <View style={styles.imageContainer}>
+          <Image source={img} style={styles.image}/>
+        </View>
+        <Text style={styles.buttonText}>{text}</Text>
+    </TouchableOpacity>
+  );
 }
 
 const styles = StyleSheet.create({
-    button: {
-      backgroundColor: '#fff',
-      width: 160,
-      height: 160,
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
-      borderRadius: 8,
-      paddingLeft: 5,
-      paddingRight: 5,
-      margin: 10,
-      shadowColor: 'rgba(0, 0, 0, 0.25)',
-      shadowOffset: { width: 0, height: 0 },
-      shadowOpacity: 0.8,
-      shadowRadius: 4,
-    },
     imageContainer: {
       shadowColor: 'rgba(0, 0, 0, 0.5)',
       shadowOffset: { width: 0, height: 0 }, 
@@ -48,5 +47,20 @@ const styles = StyleSheet.create({
     buttonText: {
       textAlign: 'center',
       fontSize: 18,
+    },
+    button: {
+      backgroundColor: '#fff',
+      width: 160,
+      height: 160,
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      borderRadius: 8,
+      paddingLeft: 5,
+      paddingRight: 5,
+      margin: 10,
+      shadowColor: 'rgba(0, 0, 0, 0.25)',
+      shadowOffset: { width: 0, height: 0 },
+      shadowOpacity: 0.8,
+      shadowRadius: 4,
     },
   });
