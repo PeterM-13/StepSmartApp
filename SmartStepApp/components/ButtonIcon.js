@@ -28,7 +28,7 @@ export default function ButtonIcon({navigation, navPage, navProps={}, text, img,
 
 const styles = StyleSheet.create({
     imageContainer: {
-      shadowColor: 'rgba(0, 0, 0, 0.5)',
+      shadowColor: 'rgba(0, 0, 0, 0.25)',
       shadowOffset: { width: 0, height: 0 }, 
       shadowOpacity: 1,
       shadowRadius: 2,

@@ -58,7 +58,7 @@ export default function LogInPage({navigation, route}) {
 
             <Text style={{fontSize: 22}}>Would you like to</Text>
             <View style={styles.buttonContainer2}>
-                <ButtonIcon navigation={navigation} text='User a stick' style={userLeftButton} action={setUser} navProps={{user:'user'}} img={require('../assets/stick.png')}/>
+                <ButtonIcon navigation={navigation} text='User a stick' style={userLeftButton} action={setUser} navProps={{user:'user'}} img={require('../assets/cane.png')}/>
                 <ButtonIcon navigation={navigation} text='Monitor a stick' style={userRightButton} action={setUser} navProps={{user:'carer'}} img={require('../assets/search.png')}/>
             </View>
 

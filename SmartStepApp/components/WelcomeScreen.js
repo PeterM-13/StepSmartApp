@@ -28,20 +28,21 @@ const styles = StyleSheet.create({
     marginBottom: 80,
   },
   button: {
-    backgroundColor: '#fff',
+    backgroundColor: '#71EDB7',
     borderRadius: 8,
-    width: 150,
-    height: 50,
+    width: 175,
+    height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 100,
-    shadowColor: '#71EDB7',//'rgba(255, 255, 255, 0.5)',
+    shadowColor: '#71EDB7',//'rgba(0, 0, 0, 0.5)',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.75,
-    shadowRadius: 6,
+    shadowRadius: 4,
     elevation: 4
   },
   buttonText: {
-    fontSize: 20,
+    fontSize: 22,
+    color: '#32303E',
   }
 });
