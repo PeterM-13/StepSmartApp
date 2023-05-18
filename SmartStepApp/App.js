@@ -5,6 +5,7 @@ import LogInPage from './components/LogInPage';
 import UserHomePage from './components/UserHomePage';
 import CarerHomePage from './components/CarerHomePage';
 import WelcomeScreen from './components/WelcomeScreen';
+import AlertPage from './components/AlertPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,9 +15,10 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="WelcomeSceen" component={WelcomeScreen} options={{title: 'Welcome', headerShown: false}}/>
-        <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Login', headerBackVisible: false}}></Stack.Screen>
-        <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home', headerBackVisible: false}}></Stack.Screen>
-        <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home', headerBackVisible: false}}></Stack.Screen>
+        <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Setup', headerBackVisible: false}}></Stack.Screen>
+        <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home'}}></Stack.Screen>
+        <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home'}}></Stack.Screen>
+        <Stack.Screen name="AlertPage" component={AlertPage} options={{title: 'Alert'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

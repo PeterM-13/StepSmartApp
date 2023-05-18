@@ -6,15 +6,15 @@ import ButtonIcon from './ButtonIcon';
 export default function LogInPage({navigation, route}) {
     const [code, setCode] = useState('');
     const [user, setUser] = useState('');
-    const [userLeftButton, setUserLeftButton] = useState(styles.buttonPressed);
-    const [userRightButton, setUserRightButton] = useState(styles.buttonPressed);
+    const [userLeftButton, setUserLeftButton] = useState(styles.button);
+    const [userRightButton, setUserRightButton] = useState(styles.button);
 
     
     useEffect(() => {
         if (user == 'user') {
           setUserLeftButton(styles.button)
           setUserRightButton(styles.buttonPressed)
-        }else{
+        }else if (user == 'carer'){
             setUserLeftButton(styles.buttonPressed)
             setUserRightButton(styles.button)
         }
@@ -24,7 +24,15 @@ export default function LogInPage({navigation, route}) {
         // ToDo
         // Connect to database to verify code exists
         if(code.length != 8){
-            alert(`'${code}' is invalid\nPlease try again`);
+            if(code.length == 0){
+                alert(`Please enter a valid code`);
+            }else{
+                alert(`'${code}' is invalid\nPlease try again`);
+            }
+            return;
+        }
+        if(JSON.stringify(userLeftButton)==JSON.stringify(styles.button) && JSON.stringify(userRightButton)==JSON.stringify(styles.button)){
+            alert('Please select a user type');
             return;
         }
         global.code = code;
@@ -33,7 +41,6 @@ export default function LogInPage({navigation, route}) {
         }else{
             navigation.navigate('UserHomePage');    
         }
-            
     }
 
     return (

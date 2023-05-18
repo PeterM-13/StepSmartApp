@@ -6,7 +6,7 @@ export default function UserHomePage({navigation}) {
     <View style={styles.container}>
       <ButtonIcon
         navigation={navigation}
-        navPage={'UserHomePage'}
+        navPage={'AlertPage'}
         text="Set Alert"
         img={require('../assets/alarm.png')}
       />
