@@ -6,7 +6,7 @@ export default function WelcomeScreen({navigation}) {
     <View style={styles.container}>
         <Image style={styles.image} source={require('../assets/Logo.png')}/>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LogInPage')}>
-            <Text style={styles.buttonText}>Continue</Text>
+            <Text style={styles.buttonText}>Start</Text>
         </TouchableOpacity>
     </View>
   );
@@ -28,13 +28,15 @@ const styles = StyleSheet.create({
     marginBottom: 80,
   },
   button: {
-    backgroundColor: '#71EDB7',
+    backgroundColor: '#32303E',
     borderRadius: 8,
-    width: 175,
+    width: 165,
     height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 100,
+    borderColor: '#71EDB7',
+    borderWidth: 2,
     shadowColor: '#71EDB7',//'rgba(0, 0, 0, 0.5)',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.75,
@@ -43,6 +45,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 22,
-    color: '#32303E',
+    color: '#fff',
   }
 });
