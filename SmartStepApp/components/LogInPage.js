@@ -48,7 +48,7 @@ export default function LogInPage({navigation, route}) {
             <Text style={{fontSize: 22}}>Enter the code on the smart stick</Text>
             <TextInput
                 style={styles.input}
-                placeholder='1234 5678'
+                placeholder='12345678'
                 maxLength={8}
                 keyboardType='numeric' //defult
                 returnKeyType='done'
