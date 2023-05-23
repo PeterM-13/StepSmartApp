@@ -57,8 +57,8 @@ export default function AlertPage({navigation}) {
                     trackColor={{ false: '#767577', true: '#4cd964' }}
                     thumbColor={alertData.alert ? '#f4f3f4' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={()=>setAlertData({...alertData, alert: !alertData.alert})}
-                    value={(alertData)?alertData.alert == 1:1}
+                    onValueChange={()=>setAlertData({...alertData, alert: (alertData.alert==1)?'0':'1'})}
+                    value={(alertData)?alertData.alert=='1':1}
                 />
             </View>
             <Text style={{fontSize:15, width:'70%',marginTop:15,marginBottom:80,color:'#8e8e8e'}}>Alert your emergency contacts when a fall is detected.</Text>
