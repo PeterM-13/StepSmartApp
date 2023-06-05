@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from 'react-native';
 import React, {useState, useEffect } from 'react';
 
 import ButtonIcon from './ButtonIcon';
@@ -9,7 +9,8 @@ export default function LogInPage({navigation, route}) {
     const [userLeftButton, setUserLeftButton] = useState(styles.button);
     const [userRightButton, setUserRightButton] = useState(styles.button);
 
-    
+    const [userData, setUserData] = useState({ });
+
     useEffect(() => {
         if (user == 'user') {
           setUserLeftButton(styles.button)
@@ -20,26 +21,48 @@ export default function LogInPage({navigation, route}) {
         }
       }, [user]);
 
-    function validateCode(){
-        // ToDo
-        // Connect to database to verify code exists
+    async function fetchData(code){
+        try {
+            const url = `https://stepsmartapi.onrender.com/StepSmart/api/alert?code=${code}`;
+            const response = await fetch(url);
+            if (!response.ok) {
+                console.log(`Failed to fetch data. Status: ${response.status}`);
+                return false;
+            }
+            const data = await response.json();
+            console.log('Received Data: ', data);
+            setUserData(data);
+            return true;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return false;
+        }
+    }
+
+    async function validateCode(){
         if(code.length != 8){
             if(code.length == 0){
-                alert(`Please enter a valid code`);
+                Alert.alert('Error', `Please enter a valid code`);
             }else{
-                alert(`'${code}' is invalid\nPlease try again`);
+                Alert.alert('Error', `'${code}' is invalid\nPlease try again`);
             }
             return;
         }
+        let response = await fetchData(code);
+        if(!response){
+            Alert.alert('Error', 'Failded to fetch data\nCheck the code is valid');
+            return;
+        }
+
         if(JSON.stringify(userLeftButton)==JSON.stringify(styles.button) && JSON.stringify(userRightButton)==JSON.stringify(styles.button)){
-            alert('Please select a user type');
+            Alert.alert('Error', 'Please select a user type');
             return;
         }
         global.code = code;
         if(user == 'carer'){
-            navigation.navigate('CarerHomePage');
+            navigation.navigate('CarerHomePage', {userData});
         }else{
-            navigation.navigate('UserHomePage');    
+            navigation.navigate('UserHomePage', {userData});    
         }
     }
 

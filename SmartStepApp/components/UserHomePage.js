@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, Button } from 'react-native';
 import ButtonIcon from './ButtonIcon';
 
-export default function UserHomePage({navigation}) {
+export default function UserHomePage({navigation, route}) {
+  const {userData} = route.params;
+
   return (
     <View style={styles.container}>
       <ButtonIcon

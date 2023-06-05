@@ -6,7 +6,7 @@ export default function ButtonIcon({navigation, navPage, navProps={}, text, img,
   if(!style){
     style = styles.button;
   }
-  
+
   function buttonPress(){
     if(action){
       action(navProps.user);
