@@ -11,7 +11,7 @@ export default function ButtonIcon({navigation, navPage, navProps={}, text, img,
     if(action){
       action(navProps.user);
     }else{
-      navigation.navigate(navPage, navProps);
+      navigation.navigate(navPage, { screen: navPage, params: navProps });
     }
     setButtonPressed(!buttonPressed)
   }

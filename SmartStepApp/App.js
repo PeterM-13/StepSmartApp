@@ -6,6 +6,7 @@ import UserHomePage from './components/UserHomePage';
 import CarerHomePage from './components/CarerHomePage';
 import WelcomeScreen from './components/WelcomeScreen';
 import AlertPage from './components/AlertPage';
+import LostPage from './components/LostPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export default function App() {
         <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home'}}></Stack.Screen>
         <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home'}}></Stack.Screen>
         <Stack.Screen name="AlertPage" component={AlertPage} options={{title: 'Alert'}}></Stack.Screen>
+        <Stack.Screen name="LostPage" component={LostPage} options={{title: 'Lost Stick'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,7 +3,7 @@ import React, {useState, useEffect } from 'react';
 
 import ButtonIcon from './ButtonIcon';
 
-export default function LogInPage({navigation, route}) {
+export default function LogInPage({navigation}) {
     const [code, setCode] = useState('');
     const [user, setUser] = useState('');
     const [userLeftButton, setUserLeftButton] = useState(styles.button);
