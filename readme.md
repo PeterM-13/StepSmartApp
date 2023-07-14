@@ -2,8 +2,8 @@
 
 React Native app for IMechE project.
 
-App that connects to smart walking stick product, to control the stick and display metrics collected by the stick.
-
+App that connects to smart walking stick product, to control the stick and display metrics collected by the stick.</br>
+See the StepSmartAPI repo <a href='https://github.com/PeterM-13/StepSmartAPI'>here</a>.
 ## 📂 Dependencies
 - npm
 - expo
