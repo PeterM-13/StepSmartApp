@@ -15,7 +15,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": false,
+      "infoPlist": {
+        "NSContactsUsageDescription": "Add contacts from your device."
+      }
     },
     "android": {
       "adaptiveIcon": {

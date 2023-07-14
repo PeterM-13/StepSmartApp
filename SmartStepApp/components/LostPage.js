@@ -9,22 +9,22 @@ export default function LostPage({navigation}) {
 
     useEffect(() => {
         const sendData = async () => {
-        try {
-            const response = await fetch(`https://stepsmartapi.onrender.com/StepSmart/api/lost?code=${global.code}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({lost: lost})
-            });
+            try {
+                const response = await fetch(`https://stepsmartapi.onrender.com/StepSmart/api/lost?code=${global.code}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({lost: lost})
+                });
             if (response.ok) {
-            console.log('Lost data sent successfully!');
+                console.log('Lost data sent successfully!');
             } else {
-            console.error('Failed to send alert data. Status:', response.status);
+                console.error('Failed to send alert data. Status:', response.status);
             }
-        } catch (error) {
-            console.error('Error occurred while sending alert data:', error);
-        }
+            } catch (error) {
+                console.error('Error occurred while sending alert data:', error);
+            }
         };
 
         if(typeof lost === "boolean"){

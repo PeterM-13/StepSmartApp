@@ -14,7 +14,7 @@ export default function UserHomePage({navigation, route}) {
       />
       <ButtonIcon
         navigation={navigation}
-        navPage='UserHomePage'
+        navPage='ContactsPage'
         text="Contacts"
         img={require('../assets/emergency-contact.png')}
       />
