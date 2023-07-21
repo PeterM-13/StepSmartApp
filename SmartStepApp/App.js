@@ -8,6 +8,7 @@ import WelcomeScreen from './components/WelcomeScreen';
 import AlertPage from './components/AlertPage';
 import ContactsPage from './components/ContactsPage';
 import LostPage from './components/LostPage';
+import HeartPage from './components/HeartPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ export default function App() {
         <Stack.Screen name="AlertPage" component={AlertPage} options={{title: 'Alert'}}></Stack.Screen>
         <Stack.Screen name="ContactsPage" component={ContactsPage} options={{title: 'Contacts'}}></Stack.Screen>
         <Stack.Screen name="LostPage" component={LostPage} options={{title: 'Lost Stick'}}></Stack.Screen>
+        <Stack.Screen name="HeartPage" component={HeartPage} options={{title: 'Heart Monitoring'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

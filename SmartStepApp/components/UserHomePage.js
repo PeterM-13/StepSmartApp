@@ -26,7 +26,7 @@ export default function UserHomePage({navigation, route}) {
       />
       <ButtonIcon
         navigation={navigation}
-        navPage='UserHomePage'
+        navPage='HeartPage'
         text="Heart Rate Log"
         img={require('../assets/heart-rate.png')}
       />
