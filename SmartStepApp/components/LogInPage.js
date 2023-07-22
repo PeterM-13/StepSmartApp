@@ -9,7 +9,7 @@ export default function LogInPage({navigation}) {
     const [userLeftButton, setUserLeftButton] = useState(styles.button);
     const [userRightButton, setUserRightButton] = useState(styles.button);
 
-    const [userData, setUserData] = useState({ });
+    const [userData, setUserData] = useState('null'); // battery level
 
     useEffect(() => {
         if (user == 'user') {
@@ -23,7 +23,7 @@ export default function LogInPage({navigation}) {
 
     async function fetchData(code){
         try {
-            const url = `https://stepsmartapi.onrender.com/StepSmart/api/alert?code=${code}`;
+            const url = `https://stepsmartapi.onrender.com/StepSmart/api/battery?code=${code}`;
             const response = await fetch(url);
             if (!response.ok) {
                 console.log(`Failed to fetch data. Status: ${response.status}`);
@@ -31,7 +31,7 @@ export default function LogInPage({navigation}) {
             }
             const data = await response.json();
             console.log('Received Data: ', data);
-            setUserData(data);
+            setUserData(String(data.battery));
             return true;
         } catch (error) {
             console.error('Error fetching data:', error);
