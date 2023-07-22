@@ -6,7 +6,7 @@ export default function UserHomePage({navigation, route}) {
   const [batteryImage, setBatteryImage] = useState('50');
   const {userData} = route.params;
 
-  const levels = [10, 20, 50, 80, 100];
+  const levels = [0, 10, 20, 50, 80, 100];
   useEffect(() => {
     const setBatteryImageBasedOnUserData = () => {
       if(userData == 'null' || userData == null || userData == undefined){
@@ -30,6 +30,7 @@ export default function UserHomePage({navigation, route}) {
 
   // Map battery levels to their corresponding image paths
   const batteryImageMap = {
+    '0': require('../assets/0-percent.png'),
     '10': require('../assets/10-percent.png'),
     '20': require('../assets/20-percent.png'),
     '50': require('../assets/50-percent.png'),
