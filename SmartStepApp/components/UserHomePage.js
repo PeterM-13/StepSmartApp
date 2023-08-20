@@ -15,10 +15,10 @@ export default function UserHomePage({navigation, route}) {
         return;
       }
       let closestLevel = '100'; // Initialize with the maximum level
-      let minDiff = Math.abs(100 - userData); // Initialize with the difference between 100 and userData
+      let minDiff = Math.abs(100 - userData.battery); // Initialize with the difference between 100 and userData
 
       for (const level of levels) {
-        const diff = Math.abs(level - userData);
+        const diff = Math.abs(level - userData.battery);
         if (diff <= minDiff) {
           minDiff = diff;
           closestLevel = level.toString();

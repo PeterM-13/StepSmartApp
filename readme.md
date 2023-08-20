@@ -10,6 +10,9 @@ See the StepSmartAPI repo <a href='https://github.com/PeterM-13/StepSmartAPI'>he
 - react-native
 - native-stack
 - react-native-screens react-native-safe-area-context
+- expo-notifications
+- expo-device
+- expo-constants
 
 ## ▶️ Deployment
 Install dependencies run: `npm i` <br>
