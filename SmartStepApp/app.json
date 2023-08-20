@@ -4,7 +4,7 @@
     "slug": "SmartStep",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Logo_square.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/Logo.png",
@@ -18,7 +18,8 @@
       "supportsTablet": false,
       "infoPlist": {
         "NSContactsUsageDescription": "Add contacts from your device."
-      }
+      },
+      "bundleIdentifier": "com.StepSmart"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra":{
+      "eas": {
+        "projectId": "56e355be-6550-4a66-9cbd-a1426c847923"
+      }
     }
   }
 }
