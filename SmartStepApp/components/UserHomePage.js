@@ -73,7 +73,7 @@ export default function UserHomePage({navigation, route}) {
       />
       <ButtonIcon
         navigation={navigation}
-        navPage='UserHomePage'
+        navPage='SettingsPage'
         text="App Settings"
         img={require('../assets/setting.png')}
       />

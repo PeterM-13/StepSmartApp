@@ -61,10 +61,10 @@ export default function AlertPage({navigation}) {
                     value={(alertData)?alertData.alert=='1':1}
                 />
             </View>
-            <Text style={{fontSize:15, width:'70%',marginTop:15,marginBottom:80,color:'#8e8e8e'}}>Alert your emergency contacts when a fall is detected.</Text>
+            <Text style={{fontSize:15, width:'70%',marginTop:15,marginBottom:75,color:'#8e8e8e'}}>Alert your emergency contacts when a fall is detected.</Text>
             
             <View style={styles.toggleContainer}>
-                <Text style={styles.text}>Fall - Alarm</Text>
+                <Text style={styles.text}>Fall  to  Alarm</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='60'
@@ -78,7 +78,7 @@ export default function AlertPage({navigation}) {
             <Text style={{fontSize:15, width:'70%',marginBottom:15,color:'#8e8e8e'}}>The time between detecting a fall and sounding the stick's alarm, in seconds.</Text>
             
             <View style={styles.toggleContainer}>
-                <Text style={styles.text}>Alarm - Contacts</Text>
+                <Text style={styles.text}>Alarm  to  Contact</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='60'
@@ -92,11 +92,11 @@ export default function AlertPage({navigation}) {
             <Text style={{fontSize:15, width:'70%',marginBottom:15,color:'#8e8e8e'}}>The time between sounding the alarm and notifying your emergency contacts.</Text>
 
             {/*https://www.npmjs.com/package/@react-native-community/slider*/}
-            <Text style={styles.volumeText}>Buzzer Volume</Text>
+            <Text style={styles.volumeText}>Buzzer Frequency</Text>
             <View style={styles.toggleContainer}>
                 <Slider
                     style={{width: '80%', height: 40}}
-                    minimumValue={0}
+                    minimumValue={1}
                     maximumValue={10}
                     minimumTrackTintColor="#007AFF"
                     maximumTrackTintColor="#8e8e8e"
@@ -107,6 +107,7 @@ export default function AlertPage({navigation}) {
                 />
                 <Text style={{fontSize: 22,width:'20%',textAlign:'right', paddingRight:5}}>{(textValue)?textValue:5}</Text>
             </View>
+            <Text style={{fontSize:15, width:'70%',marginBottom:15,color:'#8e8e8e'}}>This effects the buzzer alarm.{'\n'}1 is the slowest setting and 10 is fastest.</Text>
         </View>
     );
 }
@@ -152,6 +153,7 @@ volumeText: {
     fontSize: 22,
     textAlign: 'left',
     width: '70%',
-    marginTop: 100,
+    marginTop: 85,
+    marginBottom: 5,
 },
 });

@@ -9,10 +9,12 @@ import AlertPage from './components/AlertPage';
 import ContactsPage from './components/ContactsPage';
 import LostPage from './components/LostPage';
 import HeartPage from './components/HeartPage';
+import SettingsPage from './components/SettingsPage';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  global.textSize = 0;
   return (
     // screen navigation stack
     <NavigationContainer>
@@ -21,10 +23,11 @@ export default function App() {
         <Stack.Screen name="LogInPage" component={LogInPage} options={{title: 'Setup', headerBackVisible: false}}></Stack.Screen>
         <Stack.Screen name="UserHomePage" component={UserHomePage} options={{title: 'Home'}}></Stack.Screen>
         <Stack.Screen name="CarerHomePage" component={CarerHomePage} options={{title: 'Home'}}></Stack.Screen>
-        <Stack.Screen name="AlertPage" component={AlertPage} options={{title: 'Alert'}}></Stack.Screen>
+        <Stack.Screen name="AlertPage" component={AlertPage} options={{title: 'Alerts'}}></Stack.Screen>
         <Stack.Screen name="ContactsPage" component={ContactsPage} options={{title: 'Contacts'}}></Stack.Screen>
         <Stack.Screen name="LostPage" component={LostPage} options={{title: 'Lost Walking Stick'}}></Stack.Screen>
         <Stack.Screen name="HeartPage" component={HeartPage} options={{title: 'Heart Monitoring'}}></Stack.Screen>
+        <Stack.Screen name="SettingsPage" component={SettingsPage} options={{title: 'App Settings'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
