@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Switch, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Switch, TextInput, Alert } from 'react-native';
 import Slider from '@react-native-community/slider';
 import React, { useState, useEffect } from 'react';
 
@@ -17,7 +17,7 @@ export default function AlertPage({navigation}) {
                 setTextValue(data.volume);
             } catch (error) {
                 console.error('Error fetching data:', error);
-                alert('Error', 'Failed to fetch data');   //Alert.alert()
+                Alert.alert('Error', 'Failed to fetch data');   //Alert.alert()
             }
         }
         fetchData();

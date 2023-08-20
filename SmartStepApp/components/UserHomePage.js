@@ -1,6 +1,7 @@
 import { StyleSheet, View } from 'react-native';
-import React, { useState, useEffect } from 'react';
 import ButtonIcon from './ButtonIcon';
+
+import { useState, useEffect } from 'react';
 
 export default function UserHomePage({navigation, route}) {
   const [batteryImage, setBatteryImage] = useState('50');
