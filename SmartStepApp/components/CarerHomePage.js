@@ -132,7 +132,7 @@ export default function CarerHomePage({navigation, route}) {
     <View style={styles.container}>
       <ButtonIcon
         navigation={navigation}
-        navPage={'SettingsPage'}
+        navPage={'NotificationsPage'}
         text="Notifications"
         img={require('../assets/alarm.png')}
       />

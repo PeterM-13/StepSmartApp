@@ -11,6 +11,7 @@ import ContactsPage from './components/ContactsPage';
 import LostPage from './components/LostPage';
 import HeartPage from './components/HeartPage';
 import SettingsPage from './components/SettingsPage';
+import NotificationsPage from './components/NotificationsPage';
 
 import { Alert } from 'react-native';
   
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="LostPage" component={LostPage} options={{title: 'Lost Walking Stick'}}></Stack.Screen>
         <Stack.Screen name="HeartPage" component={HeartPage} options={{title: 'Heart Monitoring'}}></Stack.Screen>
         <Stack.Screen name="SettingsPage" component={SettingsPage} options={{title: 'App Settings'}}></Stack.Screen>
+        <Stack.Screen name="NotificationsPage" component={NotificationsPage} options={{title: 'Notifications'}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );
