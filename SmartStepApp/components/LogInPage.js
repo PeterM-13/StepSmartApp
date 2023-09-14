@@ -8,6 +8,7 @@ export default function LogInPage({navigation}) {
     const [user, setUser] = useState('');
     const [userLeftButton, setUserLeftButton] = useState(styles.button);
     const [userRightButton, setUserRightButton] = useState(styles.button);
+    const [loadingText, setLoadingText] = useState("");
 
     const [userData, setUserData] = useState('null'); // battery level
 
@@ -30,7 +31,7 @@ export default function LogInPage({navigation}) {
                 return false;
             }
             const data = await response.json();
-            console.log('Received Data: ', data);
+            //console.log('Received Data: ', data);
             setUserData(data);
             return true;
         } catch (error) {
@@ -40,24 +41,30 @@ export default function LogInPage({navigation}) {
     }
 
     async function validateCode(){
+        setLoadingText("Checking")
         if(code.length != 8){
             if(code.length == 0){
                 Alert.alert('Error', `Please enter a valid code`);
             }else{
                 Alert.alert('Error', `'${code}' is invalid\nPlease try again`);
             }
-            return;
-        }
-        let response = await fetchData(code);
-        if(!response){
-            Alert.alert('Error', 'Failded to fetch data\nCheck the code is valid');
+            setLoadingText("");
             return;
         }
 
         if(JSON.stringify(userLeftButton)==JSON.stringify(styles.button) && JSON.stringify(userRightButton)==JSON.stringify(styles.button)){
             Alert.alert('Error', 'Please select a user type');
+            setLoadingText("");
             return;
         }
+        setLoadingText("Loading");
+        let response = await fetchData(code);
+        if(!response){
+            Alert.alert('Error', 'Failded to fetch data\nCheck the code is valid');
+            setLoadingText("");
+            return;
+        }
+        setLoadingText("");
         global.code = code;
         if(user == 'carer'){
             navigation.navigate('CarerHomePage', {userData});
@@ -88,6 +95,7 @@ export default function LogInPage({navigation}) {
             <TouchableOpacity style={styles.buttonContainer} onPress={validateCode}>
                 <Text style={styles.buttonText}>Enter</Text>
             </TouchableOpacity>
+            <Text style={{fontSize: 12, paddingTop: 15}}>{loadingText}</Text>
         </View>
     );
 }

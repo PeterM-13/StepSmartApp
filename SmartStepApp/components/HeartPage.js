@@ -3,7 +3,60 @@ import { StyleSheet, View, Text, Switch, Dimensions, TextInput } from 'react-nat
 import { LineChart } from 'react-native-chart-kit';
 
 export default function HeartPage({navigation}) {
-    const [heartData, setHeartData] = useState({ });
+    const [heartData, setHeartData] = useState({"logging": "1", "readings": [70, 60, 68, 74, 78, 80, 87, 76, 80], "times": ["12:00", "12:15", "12:30", "12:45", "13:00"]});
+
+  useEffect(() => {
+    const sendData = async () => {
+      try {
+          const response = await fetch(`https://stepsmartapi.onrender.com/StepSmart/api/heart?code=${global.code}`, {
+              method: 'PATCH',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(heartData)
+          });
+      if (response.ok) {
+          console.log('Heart data sent successfully!');
+      } else {
+          console.error('Failed to send heart data. Status:', response.status);
+      }
+      } catch (error) {
+          console.error('Error occurred while sending heart data:', error);
+      }
+    };
+    sendData();
+  }, [heartData.logging]);
+
+  async function fetchData(){
+    try {
+        const url = `https://stepsmartapi.onrender.com/StepSmart/api/heart?code=${global.code}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+            console.log(`Failed to heart fetch data. Status: ${response.status}`);
+            return false;
+        }
+        const data = await response.json();
+        if (data.heartrate && data.heartrate.readings) {
+          console.log("Received Heart Data successfully: ", data);
+          setHeartData(data.heartrate);
+          return true;
+        } else {
+          console.log('Received Heart Data: ', data);
+          console.error('Invalid heart data format: missing or invalid "readings" property.');
+          return false;
+        }
+    } catch (error) {
+        console.error('Error fetching heart data:', error);
+        return false;
+    }
+  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchData();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
     return (
         <View>
         <View style={styles.container}>
@@ -13,8 +66,8 @@ export default function HeartPage({navigation}) {
                     trackColor={{ false: '#767577', true: '#4cd964' }}
                     thumbColor={heartData.logging ? '#f4f3f4' : '#f4f3f4'}
                     ios_backgroundColor="#3e3e3e"
-                    onValueChange={()=>setHeartData({...heartData, logging: (heartData.logging==1)?'0':'1'})}
-                    value={(heartData)?heartData.heart=='1':1}
+                    onValueChange={()=>setHeartData({...heartData, logging: (heartData.logging=='1')?'0':'1'})}
+                    value={heartData.logging=='1'}
                 />
             </View>
             <Text style={{fontSize:15, width:'70%',marginTop:15,marginBottom:40,color:'#8e8e8e'}}>Enables heart rate monitoring, using the sensor built into the handle.</Text>
@@ -22,20 +75,21 @@ export default function HeartPage({navigation}) {
                 <Text style={styles.text}>Current Heart Rate</Text>
                 <TextInput
                     style={styles.input}
-                    defaultValue={'60'}
+                    defaultValue={'-'}
+                    value={(heartData.readings!=undefined)?heartData.readings[heartData.readings.length - 1].toString():'-'}
                     editable={false}
                 />
             </View>
-            <Text style={{fontSize:22, textAlign:'left',width:'70%',marginTop:40,marginBottom:5}}>Last 6 Hours</Text>
-            <ChartComponent/>
+            <Text style={{fontSize:22, textAlign:'left',width:'70%',marginTop:40,marginBottom:5}}>Last Hour:</Text>
+            <ChartComponent heartData={heartData}/>
         </View>
         </View>
     );
 }
-const ChartComponent = () => {
+const ChartComponent = ({heartData}) => {
     // Sample data for time and heart rate
-    const timeData = ['08:00', '08:30', '09:00', '09:30', '10:00', '11:00']; // Replace with your actual time data
-    const heartRateData = [70, 60, 68, 74, 78, 80, 87, 76, 100, 80]; // Replace with your actual heart rate data
+    //const timeData = ['08:00', '08:30', '09:00', '09:30', '10:00', '11:00']; // Replace with your actual time data
+    //const heartRateData = [70, 60, 68, 74, 78, 80, 87, 76, 100, 80]; // Replace with your actual heart rate data
 
   // Chart configuration
   const chartConfig = {
@@ -55,10 +109,10 @@ const ChartComponent = () => {
     <View>
       <LineChart
         data={{
-          labels: timeData,
+          labels: heartData.times,
           datasets: [
             {
-              data: heartRateData,
+              data: heartData.readings,
             },
           ],
         }}

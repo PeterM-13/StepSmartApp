@@ -20,10 +20,10 @@ export default function LostPage({navigation}) {
             if (response.ok) {
                 console.log('Lost data sent successfully!');
             } else {
-                console.error('Failed to send alert data. Status:', response.status);
+                console.error('Failed to send lost data. Status:', response.status);
             }
             } catch (error) {
-                console.error('Error occurred while sending alert data:', error);
+                console.error('Error occurred while sending lost data:', error);
             }
         };
 

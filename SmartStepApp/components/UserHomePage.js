@@ -10,7 +10,7 @@ export default function UserHomePage({navigation, route}) {
   const levels = [0, 10, 20, 50, 80, 100];
   useEffect(() => {
     const setBatteryImageBasedOnUserData = () => {
-      if(userData == 'null' || userData == null || userData == undefined){
+      if(userData === null || userData === undefined){
         setBatteryImage('200');
         return;
       }
@@ -27,7 +27,7 @@ export default function UserHomePage({navigation, route}) {
       setBatteryImage(closestLevel);
     };
     setBatteryImageBasedOnUserData();
-  }, []);
+  }, [userData]);
 
   // Map battery levels to their corresponding image paths
   const batteryImageMap = {
